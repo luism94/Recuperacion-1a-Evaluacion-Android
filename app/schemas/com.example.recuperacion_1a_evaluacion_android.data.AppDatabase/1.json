@@ -1,0 +1,75 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "9a38a555aacec71196077263c15439c2",
+    "entities": [
+      {
+        "tableName": "libro",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID libro` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT 0, `Titulo libro` TEXT NOT NULL, `Autor` TEXT NOT NULL COLLATE NOCASE, `Fecha publicacion` INTEGER NOT NULL, `URL portada` TEXT NOT NULL, `Descripcion sinopsis` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "ID libro",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "titulo",
+            "columnName": "Titulo libro",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "autor",
+            "columnName": "Autor",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "anio",
+            "columnName": "Fecha publicacion",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "urlPortada",
+            "columnName": "URL portada",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sinopsis",
+            "columnName": "Descripcion sinopsis",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "ID libro"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "INDICE_AUTOR_ANIO",
+            "unique": false,
+            "columnNames": [
+              "Autor",
+              "Fecha publicacion"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `INDICE_AUTOR_ANIO` ON `${TABLE_NAME}` (`Autor`, `Fecha publicacion`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9a38a555aacec71196077263c15439c2')"
+    ]
+  }
+}
