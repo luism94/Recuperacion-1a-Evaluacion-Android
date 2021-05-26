@@ -12,8 +12,8 @@ interface Repository {
     fun aniadirLibro(titulo: String, autor: String, fecha: Int, urlPortada: String, sinopsis: String)
 
     //Eliminar libro con gesto swipe
-    fun eliminarLibro(libro: Libro): Int
+    fun eliminarLibro(libro: Libro): Boolean
 
     //Reinsertar libro desde Snackbar
-    fun insertarLibro(libro: Libro): Long
+    fun insertarLibro(libro: Libro): Boolean
 }

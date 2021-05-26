@@ -2,53 +2,53 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "9a38a555aacec71196077263c15439c2",
+    "identityHash": "cfb99499b55af91772d50306c0dbc096",
     "entities": [
       {
         "tableName": "libro",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID libro` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT 0, `Titulo libro` TEXT NOT NULL, `Autor` TEXT NOT NULL COLLATE NOCASE, `Fecha publicacion` INTEGER NOT NULL, `URL portada` TEXT NOT NULL, `Descripcion sinopsis` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT 0, `titulo` TEXT NOT NULL, `autor` TEXT NOT NULL COLLATE NOCASE, `fecha_publicacion` INTEGER NOT NULL, `url_portada` TEXT NOT NULL, `descripcion_sinopsis` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
-            "columnName": "ID libro",
+            "columnName": "ID",
             "affinity": "INTEGER",
             "notNull": true,
             "defaultValue": "0"
           },
           {
             "fieldPath": "titulo",
-            "columnName": "Titulo libro",
+            "columnName": "titulo",
             "affinity": "TEXT",
             "notNull": true
           },
           {
             "fieldPath": "autor",
-            "columnName": "Autor",
+            "columnName": "autor",
             "affinity": "TEXT",
             "notNull": true
           },
           {
             "fieldPath": "anio",
-            "columnName": "Fecha publicacion",
+            "columnName": "fecha_publicacion",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
             "fieldPath": "urlPortada",
-            "columnName": "URL portada",
+            "columnName": "url_portada",
             "affinity": "TEXT",
             "notNull": true
           },
           {
             "fieldPath": "sinopsis",
-            "columnName": "Descripcion sinopsis",
+            "columnName": "descripcion_sinopsis",
             "affinity": "TEXT",
             "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "ID libro"
+            "ID"
           ],
           "autoGenerate": true
         },
@@ -57,10 +57,10 @@
             "name": "INDICE_AUTOR_ANIO",
             "unique": false,
             "columnNames": [
-              "Autor",
-              "Fecha publicacion"
+              "autor",
+              "fecha_publicacion"
             ],
-            "createSql": "CREATE INDEX IF NOT EXISTS `INDICE_AUTOR_ANIO` ON `${TABLE_NAME}` (`Autor`, `Fecha publicacion`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `INDICE_AUTOR_ANIO` ON `${TABLE_NAME}` (`autor`, `fecha_publicacion`)"
           }
         ],
         "foreignKeys": []
@@ -69,7 +69,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9a38a555aacec71196077263c15439c2')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'cfb99499b55af91772d50306c0dbc096')"
     ]
   }
 }

@@ -14,7 +14,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.recuperacion_1a_evaluacion_android.data.AppDatabase
-import com.example.recuperacion_1a_evaluacion_android.data.Database
+import com.example.recuperacion_1a_evaluacion_android.data.LocalRepository
 import com.example.recuperacion_1a_evaluacion_android.data.entity.Libro
 import com.example.recuperacion_1a_evaluacion_android.databinding.MainActivityBinding
 import com.google.android.material.snackbar.BaseTransientBottomBar
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: MainActivityBinding
     //ViewModel con la logica detras de la actividad
     private val viewModel: MainActivityViewModel by viewModels {
-        MainActivityViewModelFactory(Database, application)
+        MainActivityViewModelFactory(LocalRepository, application)
     }
     //Adaptador del RecyclerView de la actividad con la lista de libros
     private val adaptadorLista: MainActivityAdapter = MainActivityAdapter().apply {
@@ -55,13 +55,17 @@ class MainActivity : AppCompatActivity() {
 
     //Metodo para preparar los datos a observar del viewmodel desde la actividad
     private fun observarViewModel() {
+        //Observacion de la lista de libros
         viewModel.listaLibros.observe(this) { cargarLista(it) }
+        //Observacion del mensaje de borrado de libros envuelto en clase Event
         viewModel.eventoMensaje.observeEvent(this) {
             Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
         }
+        //Observacion del estado del panel que muestra la informacion del libro pulsado
         viewModel.mostrarPanel.observe(this) {
             binding.bookPanel.isVisible = it
         }
+        //Observacion del ultimo libro pulsado para mostrar en el panel
         viewModel.currentBook.observe(this) { libro ->
             binding.lblBookTitle.text = libro.titulo
             binding.lblBookSinopsis.text = libro.sinopsis
@@ -124,6 +128,7 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
+    //Base de datos Room
     private val db: AppDatabase = 
         Room.databaseBuilder(
             applicationContext, 
@@ -150,6 +155,6 @@ class MainActivity : AppCompatActivity() {
                 )
             }
         })
-            .createFromAsset("database/libros.db")
+            .createFromAsset("database/libros.db")  //Para recuperar la bbdd guardada en local
             .build()
 }

@@ -4,11 +4,11 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.recuperacion_1a_evaluacion_android.data.DataSource
+import com.example.recuperacion_1a_evaluacion_android.data.Repository
 import com.example.recuperacion_1a_evaluacion_android.data.entity.Libro
 import utils.Event
 
-class MainActivityViewModel(val dataSource: DataSource, val application: Application): ViewModel() {
+class MainActivityViewModel(val dataSource: Repository, val application: Application): ViewModel() {
     private val _mostrarPanel: MutableLiveData<Boolean> = MutableLiveData(false)
     val mostrarPanel: LiveData<Boolean> get() = _mostrarPanel
 
@@ -37,6 +37,4 @@ class MainActivityViewModel(val dataSource: DataSource, val application: Applica
     fun insertarLibro(libro: Libro) {
         dataSource.insertarLibro(libro)
     }
-
-
 }

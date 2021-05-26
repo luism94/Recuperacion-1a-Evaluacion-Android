@@ -4,27 +4,28 @@ import android.os.Parcelable
 import androidx.room.*
 import kotlinx.parcelize.Parcelize
 
+//Entidad de la bbdd para los libros
 @Entity(
     tableName = "libro",
     indices = [
         Index(
             name = "INDICE_AUTOR_ANIO",
-            value = ["Autor", "Fecha publicacion"]
+            value = ["autor", "fecha_publicacion"]
         )
     ],
 )
 data class Libro(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name="ID libro", defaultValue = "0")
+    @ColumnInfo(name="ID", defaultValue = "0")
     val id: Int,
-    @ColumnInfo(name="Titulo libro")
+    @ColumnInfo(name="titulo")
     val titulo: String,
-    @ColumnInfo(name="Autor", collate = ColumnInfo.NOCASE)
+    @ColumnInfo(name="autor", collate = ColumnInfo.NOCASE)
     val autor: String,
-    @ColumnInfo(name="Fecha publicacion")
+    @ColumnInfo(name="fecha_publicacion")
     val anio: Int,
-    @ColumnInfo(name="URL portada")
+    @ColumnInfo(name="url_portada")
     val urlPortada: String,
-    @ColumnInfo(name="Descripcion sinopsis")
+    @ColumnInfo(name="descripcion_sinopsis")
     val sinopsis: String
 )
