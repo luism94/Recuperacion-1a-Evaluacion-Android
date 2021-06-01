@@ -9,7 +9,7 @@
 
         <ImageView
             android:id="@+id/title_page_book"
-            android:layout_width="@dimen/ancho_foto"
+            android:layout_width="@dimen/book_title_page_width"
             android:layout_height="0dp"
             android:contentDescription="@string/title_page_book"
             android:scaleType="centerCrop"

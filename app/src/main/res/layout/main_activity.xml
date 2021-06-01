@@ -40,7 +40,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
-            android:text="TextView" />
+            tools:text="Text" />
 
         <TextView
             android:id="@+id/lbl_book_sinopsis"
@@ -50,18 +50,20 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
-            android:text="TextView" />
+            tools:text="Text" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/icon_noBooks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/main_icon_noBook_size"
+        android:layout_height="0dp"
+        android:background="@drawable/ic_baseline_playlist_add_24"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="h,1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/book_list"
-        app:srcCompat="@android:drawable/ic_dialog_dialer" />
+        android:contentDescription="@string/icon_noBook_desc" />
 
     <TextView
         android:id="@+id/lbl_noBooks"
@@ -69,6 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/lbl_noBook_value"
+        android:textSize="@dimen/main_lbl_noBook_textSize"
         app:layout_constraintEnd_toEndOf="@+id/icon_noBooks"
         app:layout_constraintStart_toStartOf="@+id/icon_noBooks"
         app:layout_constraintTop_toBottomOf="@+id/icon_noBooks" />

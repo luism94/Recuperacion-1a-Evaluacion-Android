@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="ancho_foto">80dp</dimen>
+    <dimen name="book_title_page_width">80dp</dimen>
+    <dimen name="low_margin">8dp</dimen>
+    <dimen name="med_margin">16dp</dimen>
+    <dimen name="big_margin">32dp</dimen>
+    <dimen name="main_icon_noBook_size">60dp</dimen>
+    <dimen name="main_lbl_noBook_textSize">20sp</dimen>
 </resources>

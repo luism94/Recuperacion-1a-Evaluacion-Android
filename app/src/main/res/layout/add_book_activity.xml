@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/lblTitle"
+        android:labelFor="@id/inputTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/med_margin"
+        android:layout_marginTop="@dimen/med_margin"
+        android:text="@string/lbl_book_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/inputTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/med_margin"
+        android:layout_marginTop="@dimen/low_margin"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblTitle"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/lblAuthor"
+        android:labelFor="@id/inputAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/med_margin"
+        android:layout_marginTop="@dimen/med_margin"
+        android:text="@string/lbl_book_author"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputTitle" />
+
+    <EditText
+        android:id="@+id/inputAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/med_margin"
+        android:layout_marginTop="@dimen/low_margin"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblAuthor"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/lblYear"
+        android:labelFor="@id/inputYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/med_margin"
+        android:layout_marginTop="@dimen/med_margin"
+        android:text="@string/lbl_book_year"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputAuthor" />
+
+    <EditText
+        android:id="@+id/inputYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/med_margin"
+        android:layout_marginTop="@dimen/low_margin"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblYear"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/lblTitlePageURL"
+        android:labelFor="@id/inputTitlePageURL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/med_margin"
+        android:layout_marginTop="@dimen/low_margin"
+        android:text="@string/lbl_book_title_page_url"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputYear" />
+
+    <EditText
+        android:id="@+id/inputTitlePageURL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/med_margin"
+        android:layout_marginTop="@dimen/low_margin"
+        android:ems="10"
+        android:inputType="textUri"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblTitlePageURL"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/lblSynopsis"
+        android:labelFor="@id/inputSynopsis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/med_margin"
+        android:layout_marginTop="@dimen/med_margin"
+        android:text="@string/lbl_book_synopsis"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputTitlePageURL" />
+
+    <EditText
+        android:id="@+id/inputSynopsis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/med_margin"
+        android:layout_marginTop="@dimen/low_margin"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblSynopsis"
+        android:autofillHints="" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

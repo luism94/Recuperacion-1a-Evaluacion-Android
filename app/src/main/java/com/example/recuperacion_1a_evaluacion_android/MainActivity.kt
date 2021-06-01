@@ -3,6 +3,7 @@ package com.example.recuperacion_1a_evaluacion_android
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -125,5 +126,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_activity, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.addBookOpt -> navigateToAddBookActivity()
+            else -> return super.onOptionsItemSelected(item)
+        }
+        return true
+    }
+
+    private fun navigateToAddBookActivity() {
+        TODO("Not yet implemented")
+
     }
 }
