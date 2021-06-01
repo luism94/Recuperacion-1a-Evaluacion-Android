@@ -1,8 +1,11 @@
 package com.example.recuperacion_1a_evaluacion_android.data
 
 import android.content.Context
+import android.database.sqlite.SQLiteDatabase
+import androidx.core.content.contentValuesOf
 import androidx.room.Database
 import androidx.room.*
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.recuperacion_1a_evaluacion_android.data.entity.Libro
 
 @Database(
@@ -22,10 +25,31 @@ abstract class AppDatabase : RoomDatabase() {
                 synchronized(this) {
                     if (INSTANCE == null) {
                         INSTANCE = Room.databaseBuilder(
-                            context.applicationContext,
+                            context,
                             AppDatabase::class.java,
-                            "app_database"
+                            "libros"
                         )
+                            .addCallback(object : RoomDatabase.Callback() {
+                                override fun onCreate(db: SupportSQLiteDatabase) {
+                                    //Con Dao???
+                                    db.insert(
+                                        "libro",
+                                        SQLiteDatabase.CONFLICT_ABORT,
+                                        contentValuesOf("titulo" to "Ofrenda a la tormenta", "autor" to "Dolores Redondo", "anio" to 2014, "urlPortada" to "https://loremflickr.com/320/240", "sinopsis" to "sinopsis")
+                                    )
+                                    db.insert(
+                                        "libro",
+                                        SQLiteDatabase.CONFLICT_ABORT,
+                                        contentValuesOf("titulo" to "El Código DaVinci", "autor" to "Dan Brown", "anio" to 2010, "urlPortada" to "https://loremflickr.com/320/240", "sinopsis" to "sinopsis")
+                                    )
+                                    db.insert(
+                                        "libro",
+                                        SQLiteDatabase.CONFLICT_ABORT,
+                                        contentValuesOf("titulo" to "Ángeles y Demonios", "autor" to "Dan Brown", "anio" to 2012, "urlPortada" to "https://loremflickr.com/320/240", "sinopsis" to "sinopsis")
+                                    )
+                                }
+                            })
+                            .createFromAsset("database/libros.db")  //Para recuperar la bbdd guardada en local
                             .build()
                     }
                 }

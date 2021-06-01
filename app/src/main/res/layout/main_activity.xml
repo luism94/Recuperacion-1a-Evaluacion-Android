@@ -17,12 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
-        android:name="com.example.recuperacion_1a_evaluacion_android.fragments."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
     <LinearLayout
         android:id="@+id/book_panel"
         android:layout_width="match_parent"
@@ -78,29 +72,5 @@
         app:layout_constraintEnd_toEndOf="@+id/icon_noBooks"
         app:layout_constraintStart_toStartOf="@+id/icon_noBooks"
         app:layout_constraintTop_toBottomOf="@+id/icon_noBooks" />
-
-    <Button
-        android:id="@+id/btnOption1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Option 1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnOption2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Option 2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnOption1" />
-
-    <Button
-        android:id="@+id/btnOption3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Option 3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnOption2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

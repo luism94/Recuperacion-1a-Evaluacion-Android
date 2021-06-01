@@ -12,7 +12,7 @@ interface BookDAO {
 
     //Crear un libro nuevo y guardarlo en la lista
     @Insert
-    fun aniadirLibro(titulo: String, autor: String, anio: Int, urlPortada: String, sinopsis: String)
+    fun aniadirLibro(libro: Libro)
 
     //Eliminar libro con gesto swipe
     @Delete

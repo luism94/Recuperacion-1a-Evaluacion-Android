@@ -1,18 +1,14 @@
 package com.example.recuperacion_1a_evaluacion_android
 
-import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.core.content.contentValuesOf
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.*
-import androidx.room.Room
-import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.recuperacion_1a_evaluacion_android.data.AppDatabase
 import com.example.recuperacion_1a_evaluacion_android.data.LocalRepository
 import com.example.recuperacion_1a_evaluacion_android.data.entity.Libro
@@ -29,7 +25,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: MainActivityBinding
     //ViewModel con la logica detras de la actividad
     private val viewModel: MainActivityViewModel by viewModels {
-        MainActivityViewModelFactory(LocalRepository, application)
+        MainActivityViewModelFactory(
+            LocalRepository(AppDatabase.getInstance(applicationContext).bookDao),
+            application
+        )
     }
     //Adaptador del RecyclerView de la actividad con la lista de libros
     private val adaptadorLista: MainActivityAdapter = MainActivityAdapter().apply {
@@ -105,7 +104,7 @@ class MainActivity : AppCompatActivity() {
     private fun mostrarSnackBar(libro: Libro, posicion: Int) {
         Snackbar.make(binding.root,"Libro ${libro.titulo} eliminado", Snackbar.LENGTH_LONG)
             .setAction("DESHACER") {
-                insertarLibro(posicion)
+                reinsertarLibro(posicion)
             }
             .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
                 override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
@@ -118,7 +117,7 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
     //Metodo para reinsertar el libro que se acaba de eliminar a traves del snackbar
-    private fun insertarLibro(posicion: Int) {
+    private fun reinsertarLibro(posicion: Int) {
         adaptadorLista.notifyItemChanged(posicion)
     }
 
@@ -127,34 +126,4 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.main_activity, menu)
         return super.onCreateOptionsMenu(menu)
     }
-
-    //Base de datos Room
-    private val db: AppDatabase = 
-        Room.databaseBuilder(
-            applicationContext, 
-            AppDatabase::class.java, 
-            "libros"
-        )
-        .addCallback(object : RoomDatabase.Callback() {
-            override fun onCreate(db: SupportSQLiteDatabase) {
-                //Con Dao???
-                db.insert(
-                    "libro",
-                    SQLiteDatabase.CONFLICT_ABORT,
-                    contentValuesOf("titulo" to "Ofrenda a la tormenta", "autor" to "Dolores Redondo", "anio" to 2014, "urlPortada" to "https://loremflickr.com/320/240", "sinopsis" to "sinopsis")
-                )
-                db.insert(
-                    "libro",
-                    SQLiteDatabase.CONFLICT_ABORT,
-                    contentValuesOf("titulo" to "El Código DaVinci", "autor" to "Dan Brown", "anio" to 2010, "urlPortada" to "https://loremflickr.com/320/240", "sinopsis" to "sinopsis")
-                )
-                db.insert(
-                    "libro",
-                    SQLiteDatabase.CONFLICT_ABORT,
-                    contentValuesOf("titulo" to "Ángeles y Demonios", "autor" to "Dan Brown", "anio" to 2012, "urlPortada" to "https://loremflickr.com/320/240", "sinopsis" to "sinopsis")
-                )
-            }
-        })
-            .createFromAsset("database/libros.db")  //Para recuperar la bbdd guardada en local
-            .build()
 }

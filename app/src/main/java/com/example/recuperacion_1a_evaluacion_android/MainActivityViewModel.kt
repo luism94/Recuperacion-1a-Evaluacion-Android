@@ -34,7 +34,7 @@ class MainActivityViewModel(val dataSource: Repository, val application: Applica
         _eventoMensaje.value = Event(application.getString(R.string.libro_eliminado))
     }
 
-    fun insertarLibro(libro: Libro) {
-        dataSource.insertarLibro(libro)
-    }
+//    fun insertarLibro(libro: Libro) {
+//        dataSource.insertarLibro(libro)
+//    }
 }
