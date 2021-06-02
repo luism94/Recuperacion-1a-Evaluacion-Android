@@ -32,7 +32,7 @@ class MainActivityAdapter(): ListAdapter<Libro, MainActivityAdapter.ViewHolder>(
         fun bind(libro: Libro) {
             binding.bookTitle.text = libro.titulo
             binding.bookAuthor.text = libro.autor
-            binding.bookYear.text = libro.anio.toString()
+            binding.bookYear.text = libro.fecha.toString()
             Glide.with(itemView).load(libro.urlPortada).into(binding.titlePageBook)    //Recibir contexto de MainActivity de alguna forma
         }
     }
@@ -59,7 +59,7 @@ object CallbackDiferenciasLibros: DiffUtil.ItemCallback<Libro>() {
     override fun areContentsTheSame(libroAnterior: Libro, libroNuevo: Libro): Boolean {
         return libroAnterior.titulo == libroNuevo.titulo &&
                 libroAnterior.autor == libroNuevo.autor &&
-                libroAnterior.anio == libroNuevo.anio
+                libroAnterior.fecha == libroNuevo.fecha
     }
 }
 

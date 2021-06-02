@@ -23,7 +23,7 @@ data class Libro(
     @ColumnInfo(name="autor", collate = ColumnInfo.NOCASE)
     val autor: String,
     @ColumnInfo(name="fecha_publicacion")
-    val anio: Int,
+    val fecha: Int,
     @ColumnInfo(name="url_portada")
     val urlPortada: String,
     @ColumnInfo(name="descripcion_sinopsis")

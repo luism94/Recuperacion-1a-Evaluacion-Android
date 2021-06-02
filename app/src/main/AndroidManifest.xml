@@ -21,7 +21,8 @@
         <activity
             android:name=".AddBookActivity"
             android:label="@string/addBookActivity_title"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
     </application>
 
 </manifest>

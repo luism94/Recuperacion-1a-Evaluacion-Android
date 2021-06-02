@@ -9,7 +9,7 @@ interface Repository {
     fun obtenerLista(): LiveData<List<Libro>>
 
     //Crear un libro nuevo y guardarlo en la lista
-    fun aniadirLibro(libro: Libro)
+    fun insertarLibro(libro: Libro)
 
     //Eliminar libro con gesto swipe
     fun eliminarLibro(libro: Libro): Int

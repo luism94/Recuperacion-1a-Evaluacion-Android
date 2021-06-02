@@ -29,28 +29,28 @@ abstract class AppDatabase : RoomDatabase() {
                             AppDatabase::class.java,
                             "libros"
                         )
-                            .addCallback(object : RoomDatabase.Callback() {
-                                override fun onCreate(db: SupportSQLiteDatabase) {
-                                    //Con Dao???
-                                    db.insert(
-                                        "libro",
-                                        SQLiteDatabase.CONFLICT_ABORT,
-                                        contentValuesOf("titulo" to "Ofrenda a la tormenta", "autor" to "Dolores Redondo", "anio" to 2014, "urlPortada" to "https://loremflickr.com/320/240", "sinopsis" to "sinopsis")
-                                    )
-                                    db.insert(
-                                        "libro",
-                                        SQLiteDatabase.CONFLICT_ABORT,
-                                        contentValuesOf("titulo" to "El Código DaVinci", "autor" to "Dan Brown", "anio" to 2010, "urlPortada" to "https://loremflickr.com/320/240", "sinopsis" to "sinopsis")
-                                    )
-                                    db.insert(
-                                        "libro",
-                                        SQLiteDatabase.CONFLICT_ABORT,
-                                        contentValuesOf("titulo" to "Ángeles y Demonios", "autor" to "Dan Brown", "anio" to 2012, "urlPortada" to "https://loremflickr.com/320/240", "sinopsis" to "sinopsis")
-                                    )
-                                }
-                            })
-                            .createFromAsset("database/libros.db")  //Para recuperar la bbdd guardada en local
-                            .build()
+                        .addCallback(object : RoomDatabase.Callback() {
+                            override fun onCreate(db: SupportSQLiteDatabase) {
+                                //Con Dao???
+                                db.insert(
+                                    "libro",
+                                    SQLiteDatabase.CONFLICT_ABORT,
+                                    contentValuesOf("titulo" to "Ofrenda a la tormenta", "autor" to "Dolores Redondo", "fecha_publicacion" to 2014, "url_portada" to "https://loremflickr.com/320/240", "descripcion_sinopsis" to "sinopsis")
+                                )
+                                db.insert(
+                                    "libro",
+                                    SQLiteDatabase.CONFLICT_ABORT,
+                                    contentValuesOf("titulo" to "El Código DaVinci", "autor" to "Dan Brown", "fecha_publicacion" to 2010, "url_portada" to "https://loremflickr.com/320/240", "descripcion_sinopsis" to "sinopsis")
+                                )
+                                db.insert(
+                                    "libro",
+                                    SQLiteDatabase.CONFLICT_ABORT,
+                                    contentValuesOf("titulo" to "Ángeles y Demonios", "autor" to "Dan Brown", "fecha_publicacion" to 2012, "url_portada" to "https://loremflickr.com/320/240", "descripcion_sinopsis" to "sinopsis")
+                                )
+                            }
+                        })
+//                        .createFromAsset("database/libros.db")  //Para recuperar la bbdd guardada en local
+                        .build()
                     }
                 }
             }

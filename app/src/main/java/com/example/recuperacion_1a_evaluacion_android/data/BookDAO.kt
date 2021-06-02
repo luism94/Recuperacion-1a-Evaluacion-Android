@@ -12,13 +12,13 @@ interface BookDAO {
 
     //Crear un libro nuevo y guardarlo en la lista
     @Insert
-    fun aniadirLibro(libro: Libro)
+    fun insertarLibro(libro: Libro)
 
     //Eliminar libro con gesto swipe
     @Delete
     fun eliminarLibro(libro: Libro): Int
 
-    //Reinsertar libro desde Snackbar
-    @Insert
-    fun insertarLibro(libro: Libro): Long
+//    //Reinsertar libro desde Snackbar
+//    @Insert
+//    fun insertarLibro(libro: Libro): Long
 }

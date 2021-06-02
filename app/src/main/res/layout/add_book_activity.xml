@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -26,8 +27,9 @@
         android:inputType="textPersonName"
         android:text=""
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblTitle"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/lblTitle">
+        <requestFocus/>
+    </EditText>
 
     <TextView
         android:id="@+id/lblAuthor"
@@ -50,8 +52,7 @@
         android:inputType="textPersonName"
         android:text=""
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblAuthor"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/lblAuthor" />
 
     <TextView
         android:id="@+id/lblYear"
@@ -73,8 +74,7 @@
         android:ems="10"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblYear"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/lblYear" />
 
     <TextView
         android:id="@+id/lblTitlePageURL"
@@ -97,8 +97,7 @@
         android:inputType="textUri"
         android:text=""
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblTitlePageURL"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/lblTitlePageURL" />
 
     <TextView
         android:id="@+id/lblSynopsis"
@@ -121,7 +120,6 @@
         android:gravity="start|top"
         android:inputType="textMultiLine"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblSynopsis"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/lblSynopsis" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

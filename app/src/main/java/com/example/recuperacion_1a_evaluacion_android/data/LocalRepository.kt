@@ -6,7 +6,7 @@ import com.example.recuperacion_1a_evaluacion_android.data.entity.Libro
 class LocalRepository(private val bookDAO: BookDAO) : Repository {
     override fun obtenerLista(): LiveData<List<Libro>> = bookDAO.obtenerLista()
 
-    override fun aniadirLibro(libro: Libro) = bookDAO.aniadirLibro(libro)
+    override fun insertarLibro(libro: Libro) = bookDAO.insertarLibro(libro)
 
     override fun eliminarLibro(libro: Libro): Int = bookDAO.eliminarLibro(libro)
 

@@ -8,7 +8,10 @@ import com.example.recuperacion_1a_evaluacion_android.data.Repository
 import com.example.recuperacion_1a_evaluacion_android.data.entity.Libro
 import utils.Event
 
-class MainActivityViewModel(private val dataSource: Repository, private val application: Application): ViewModel() {
+class MainActivityViewModel(
+    private val dataSource: Repository,
+    private val application: Application,
+    ): ViewModel() {
     private val _mostrarPanel: MutableLiveData<Boolean> = MutableLiveData(false)
     val mostrarPanel: LiveData<Boolean> get() = _mostrarPanel
 
@@ -25,13 +28,13 @@ class MainActivityViewModel(private val dataSource: Repository, private val appl
         _mostrarPanel.value = true
     }
 
-    fun closePanel() {
+    fun closeBookPanel() {
         _mostrarPanel.value = false
     }
 
     fun eliminarLibro(libro: Libro) {
         dataSource.eliminarLibro(libro)
-        _eventoMensaje.value = Event(application.getString(R.string.libro_eliminado))
+        _eventoMensaje.value = Event(application.getString(R.string.libro_eliminado, libro.titulo))
     }
 
 //    fun insertarLibro(libro: Libro) {

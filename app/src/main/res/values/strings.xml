@@ -6,7 +6,8 @@
     <string name="icon_bar_2_desc">Icono para añadir un libro a la lista</string>
     <string name="title_page_book">Portada de libro</string>
     <string name="lbl_noBook_value">Añadir libro</string>
-    <string name="libro_eliminado">Libro eliminado</string>
+    <string name="libro_eliminado">Libro %1$s eliminado</string>
+    <string name="deshacer_borrado"><b>Deshacer</b></string>
     <string name="menu_addBook">Añadir libro</string>
     <string name="addBookActivity_title">Agregar libro</string>
     <string name="lbl_book_title">Título</string>
@@ -15,4 +16,5 @@
     <string name="lbl_book_title_page_url">URL Portada</string>
     <string name="lbl_book_synopsis">Sinopsis</string>
     <string name="icon_noBook_desc">Icono para mostrar si no hay libros</string>
+    <string name="form_error">Se debe rellenar todos los campos del formulario</string>
 </resources>

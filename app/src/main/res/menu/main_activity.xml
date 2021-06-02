@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <item
-        android:id="@+id/addBookOpt"
+        android:id="@+id/goToAddBookActivity"
         android:icon="@drawable/ic_baseline_playlist_add_24"
         app:showAsAction="ifRoom"
         tools:iconTint="@color/white"
-        android:title="@string/menu_addBook"
-        />
+        app:iconTint="@color/white"
+        android:title="@string/menu_addBook" />
 </menu>
